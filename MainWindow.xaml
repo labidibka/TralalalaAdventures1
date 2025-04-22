@@ -9,13 +9,14 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- Panel sterowania -->
-        <StackPanel Orientation="Horizontal" Margin="10">
-            <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0"/>
-            <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16"/>
-            <Image x:Name="obraz" Height="100" Width="100" Source="/gracz.png"/>
+        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
+            <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
+            <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="100,20,0,0"/>
         </StackPanel>
+        <Image x:Name="obraz" Height="100" Width="100" Source="/gracz.png"/>
+        
         <!-- Kontener wyświetlający mapę -->
-        <Grid Name="SiatkaMapy" Grid.Row="1" Background="LightGray"/>
+        <Grid Name="SiatkaMapy" Grid.Row="1" Background="#FFD8D8D8"/>
     </Grid>
 </Window>
 
