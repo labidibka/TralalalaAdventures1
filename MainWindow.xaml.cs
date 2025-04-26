@@ -189,7 +189,18 @@ namespace Gra2D
                 WczytajMape(oknoDialogowe.FileName);
             }
         }
+
+        private void Sterowanie_Click(object sender, RoutedEventArgs e)
+        {
+            wyswietl.Content = "Sterowanie Za pomocą Strzałek";
+        }
+        private void Akcja_Click(object sender, RoutedEventArgs e)
+        {
+            wyswietl.Content = "tralalala";
+        }
     }
+
+   
 }
 
 

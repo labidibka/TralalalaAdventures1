@@ -21,19 +21,19 @@
                 <MenuItem Header="Cappi" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
             </MenuItem>
             <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
-                <MenuItem Header="Sterowanie" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
-                <MenuItem Header="Mapy" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="Sterowanie_Click"></MenuItem>
+                <MenuItem  x:Name="Akcja"  Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center" Click="Akcja_Click"></MenuItem>
             </MenuItem>
 
         </Menu>
+        <Label x:Name="wyswietl" Height="100" Width="203" HorizontalAlignment="Left" Margin="597,0,0,0"></Label>
         <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="400,0,286,20"/>
         <!-- <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
         </StackPanel> -->
         <Image x:Name="obraz" Height="100" Width="100" Source="/gracz.png" Margin="492,0,208,0"/>
-        <Label x:Name="wyswietl" Height="100" Width="203" HorizontalAlignment="Left" Margin="597,0,0,0"></Label>
+        
 
         <!-- Kontener wyświetlający mapę -->
         <Grid Name="SiatkaMapy" Grid.Row="1" Background="#FFD8D8D8"/>
