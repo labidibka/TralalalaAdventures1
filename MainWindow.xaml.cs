@@ -190,13 +190,25 @@ namespace Gra2D
             }
         }
 
-        private void Sterowanie_Click(object sender, RoutedEventArgs e)
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            wyswietl.Content = "Sterowanie Za pomocą Strzałek";
-        }
-        private void Akcja_Click(object sender, RoutedEventArgs e)
-        {
-            wyswietl.Content = "tralalala";
+            MenuItem KLIK = sender as MenuItem;
+
+            if(KLIK != null)
+            {
+                string naglowek = KLIK.Header.ToString();
+
+                switch(naglowek) 
+                {
+                    case "Sterowanie":
+                        wyswietl.Content = "Poruszaj Się Strzałkami";
+                        break;
+                    case "Akcja":
+                        wyswietl.Content = "TRALALALA";
+                        break;
+                         
+                }
+            }
         }
     }
 

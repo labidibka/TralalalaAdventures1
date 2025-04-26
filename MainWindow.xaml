@@ -20,9 +20,9 @@
                 <MenuItem Header="Croco" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
                 <MenuItem Header="Cappi" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
-                <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="Sterowanie_Click"></MenuItem>
-                <MenuItem  x:Name="Akcja"  Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center" Click="Akcja_Click"></MenuItem>
+            <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click">
+                <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="MenuItem_Click"></MenuItem>
+                <MenuItem  x:Name="Akcja"  Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
             </MenuItem>
 
         </Menu>
