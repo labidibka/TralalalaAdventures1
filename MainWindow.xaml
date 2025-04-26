@@ -11,28 +11,28 @@
         <!-- Panel sterowania -->
         <Menu>
             <MenuItem Header="Wybierz Mapę" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
+                <MenuItem Header="5x5" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
                 <MenuItem Header="6x6" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
                 <MenuItem Header="7x7" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="8x8" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
             </MenuItem>
             <MenuItem Header="Wybierz Postać" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
                 <MenuItem Header="Tung" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="Crocodilo" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="Cappucino" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem Header="Croco" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
+                <MenuItem Header="Cappi" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
             </MenuItem>
             <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
-                <MenuItem Header="Tung" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="Crocodilo" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="Cappucino" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem Header="Sterowanie" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
+                <MenuItem Header="Mapy" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
             </MenuItem>
 
         </Menu>
-        <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="100,20,0,0"/>
+        <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="400,0,286,20"/>
         <!-- <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
         </StackPanel> -->
-        <Image x:Name="obraz" Height="100" Width="100" Source="/gracz.png"/>
+        <Image x:Name="obraz" Height="100" Width="100" Source="/gracz.png" Margin="492,0,208,0"/>
         <Label x:Name="wyswietl" Height="100" Width="203" HorizontalAlignment="Left" Margin="597,0,0,0"></Label>
 
         <!-- Kontener wyświetlający mapę -->
