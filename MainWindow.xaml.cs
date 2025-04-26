@@ -210,6 +210,36 @@ namespace Gra2D
                 }
             }
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            MenuItem klik = sender as MenuItem;
+
+            if (klik != null)
+            {
+                string naglowek = klik.Header.ToString();
+                string sciezka = "";
+
+                switch (naglowek)
+                {
+                    case "Tung":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Tung.jpg";
+                        break;
+                    case "Croco":
+                        wyswietl.Content = "TRALALALA";
+                        break;
+                    case "Cappi":
+                        wyswietl.Content = "TRALALALA";
+                        break;
+                }
+
+                // Ładujemy obrazek TYLKO jeśli ścieżka nie jest pusta!
+                if (!string.IsNullOrEmpty(sciezka))
+                {
+                    MainImage.Source = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
+                }
+            }
+        }
     }
 
    

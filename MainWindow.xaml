@@ -15,10 +15,10 @@
                 <MenuItem Header="6x6" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
                 <MenuItem Header="7x7" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Wybierz Postać" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
-                <MenuItem x:Name="Tung" Header="Tung" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem x:Name="Croco" Header="Croco" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
-                <MenuItem x:Name="Cappi" Header="Cappi" Height="29" Width="120" HorizontalContentAlignment="Left"></MenuItem>
+            <MenuItem Header="Wybierz Postać" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click_1">
+                <MenuItem x:Name="Tung" Header="Tung" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_1"></MenuItem>
+                    <MenuItem x:Name="Croco" Header="Croco" Height="29" Width="120" HorizontalContentAlignment="Left" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem x:Name="Cappi" Header="Cappi" Height="29" Width="120" HorizontalContentAlignment="Left" Click="MenuItem_Click_1"></MenuItem>
             </MenuItem>
             <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click">
                 <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="MenuItem_Click"></MenuItem>
@@ -32,7 +32,7 @@
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
         </StackPanel> -->
-
+        <Image x:Name="MainImage" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" />
 
 
         <!-- Kontener wyświetlający mapę -->
