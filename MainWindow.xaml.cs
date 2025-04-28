@@ -22,7 +22,8 @@ namespace Gra2D
         // Dwuwymiarowa tablica kontrolek Image reprezentujących segmenty mapy
         private Image[,] tablicaTerenu;
         // Rozmiar jednego segmentu mapy w pikselach
-        private const int RozmiarSegmentu = 32;
+        private const int RozmiarSegmentuW = 96;
+        private const int RozmiarSegmentuH = 64;
 
         // Tablica obrazków terenu – indeks odpowiada rodzajowi terenu
         // Indeks 1: las, 2: łąka, 3: skały
@@ -43,8 +44,8 @@ namespace Gra2D
             // Inicjalizacja obrazka gracza
             obrazGracza = new Image
             {
-                Width = RozmiarSegmentu,
-                Height = RozmiarSegmentu
+                Width = RozmiarSegmentuW,
+                Height = RozmiarSegmentuH
             };
             BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
             obrazGracza.Source = bmpGracza;
@@ -83,11 +84,11 @@ namespace Gra2D
 
                 for (int y = 0; y < wysokoscMapy; y++)
                 {
-                    SiatkaMapy.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(RozmiarSegmentu) });
+                    SiatkaMapy.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(RozmiarSegmentuH) });
                 }
                 for (int x = 0; x < szerokoscMapy; x++)
                 {
-                    SiatkaMapy.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(RozmiarSegmentu) });
+                    SiatkaMapy.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(RozmiarSegmentuW) });
                 }
 
                 // Tworzenie tablicy kontrolk Image i dodawanie ich do siatki
@@ -98,8 +99,8 @@ namespace Gra2D
                     {
                         Image obraz = new Image
                         {
-                            Width = RozmiarSegmentu,
-                            Height = RozmiarSegmentu
+                            Width = RozmiarSegmentuW,
+                            Height = RozmiarSegmentuH
                         };
 
                         int rodzaj = mapa[y, x];
@@ -238,6 +239,20 @@ namespace Gra2D
                 {
                     MainImage.Source = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
                 }
+            }
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            string sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\mapa.txt";
+
+            if (File.Exists(sciezka))
+            {
+                WczytajMape(sciezka);
+            }
+            else
+            {
+                MessageBox.Show("Plik nie istnieje: " + sciezka);
             }
         }
     }

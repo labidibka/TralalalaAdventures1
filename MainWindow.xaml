@@ -11,7 +11,7 @@
         <!-- Panel sterowania -->
         <Menu VerticalAlignment="Top" HorizontalAlignment="Center">
             <MenuItem Header="Wybierz Mapę" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
-                <MenuItem Header="5x5" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem Header="5x5" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_2"></MenuItem>
                 <MenuItem Header="6x6" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
                 <MenuItem Header="7x7" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
             </MenuItem>
@@ -32,7 +32,7 @@
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
         </StackPanel> -->
-        <Image x:Name="MainImage" Width="137" Height="133" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="649,49,0,0" Panel.ZIndex="1" Grid.Row="1"/>
+        <Image x:Name="MainImage" Width="189" Height="167" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="597,49,0,0" Panel.ZIndex="1" Grid.Row="1"/>
 
 
         <!-- Kontener wyświetlający mapę -->
