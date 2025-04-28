@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -47,8 +48,40 @@ namespace Gra2D
                 Width = RozmiarSegmentuW,
                 Height = RozmiarSegmentuH
             };
-            BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
+
+                BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
             obrazGracza.Source = bmpGracza;
+        }
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            MenuItem klik = sender as MenuItem;
+
+            if (klik != null)
+            {
+                string naglowek = klik.Header.ToString();
+                string sciezka = "";
+
+                switch (naglowek)
+                {
+                    case "Tung":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Tung.jpg";
+                        break;
+                    case "tralalelo":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Trala.jpg";
+                        break;
+                    case "Battler":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Battler.jpg";
+                        break;
+                }
+
+                // Ładujemy obrazek TYLKO jeśli ścieżka nie jest pusta!
+                if (!string.IsNullOrEmpty(sciezka))
+                {
+                    MainImage.Source = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
+                    BitmapImage nowyGracz = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
+                    obrazGracza.Source = nowyGracz;
+                }
+            }
         }
         private void WczytajObrazyTerenu()
         {
@@ -212,35 +245,7 @@ namespace Gra2D
             }
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            MenuItem klik = sender as MenuItem;
 
-            if (klik != null)
-            {
-                string naglowek = klik.Header.ToString();
-                string sciezka = "";
-
-                switch (naglowek)
-                {
-                    case "Tung":
-                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Tung.jpg";
-                        break;
-                    case "tralalelo":
-                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Trala.jpg";
-                        break;
-                    case "Battler":
-                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Battler.jpg";
-                        break;
-                }
-
-                // Ładujemy obrazek TYLKO jeśli ścieżka nie jest pusta!
-                if (!string.IsNullOrEmpty(sciezka))
-                {
-                    MainImage.Source = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
-                }
-            }
-        }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
