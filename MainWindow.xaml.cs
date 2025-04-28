@@ -225,11 +225,11 @@ namespace Gra2D
                     case "Tung":
                         sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Tung.jpg";
                         break;
-                    case "Croco":
-                        wyswietl.Content = "TRALALALA";
+                    case "tralalelo":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Trala.jpg";
                         break;
-                    case "Cappi":
-                        wyswietl.Content = "TRALALALA";
+                    case "Battler":
+                        sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Battler.jpg";
                         break;
                 }
 
