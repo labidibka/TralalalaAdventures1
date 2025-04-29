@@ -37,6 +37,7 @@ namespace Gra2D
         private Image obrazGracza;
         // Licznik zgromadzonego drewna
         private int iloscDrewna = 0;
+        private int IloscKamienia = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -185,6 +186,8 @@ namespace Gra2D
 
                 iloscDrewna = 0;
                 EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
+                IloscKamienia = 0;
+                EtykietaKamienia.Content = "Kamień: " + IloscKamienia;
             }//koniec try
             catch (Exception ex)
             {
@@ -197,6 +200,35 @@ namespace Gra2D
         {
             Grid.SetRow(obrazGracza, pozycjaGraczaY);
             Grid.SetColumn(obrazGracza, pozycjaGraczaX);
+        }
+        private void WykopSkale()
+        {
+            // Sprawdzamy pola wokół gracza (góra, dół, lewo, prawo)
+            int[] kierunkiX = { -1, 1, 0, 0 }; // lewo, prawo, góra, dół
+            int[] kierunkiY = { 0, 0, -1, 1 };
+            for (int i = 0; i < 4; i++)
+            {
+                int noweX = pozycjaGraczaX + kierunkiX[i];
+                int noweY = pozycjaGraczaY + kierunkiY[i];
+
+                // Sprawdzamy, czy noweX i noweY są w granicach mapy
+                if (noweX >= 0 && noweX < szerokoscMapy && noweY >= 0 && noweY < wysokoscMapy)
+                {
+                    // Jeśli w sąsiednim polu jest SKALA, zmieniamy ją na LAKA
+                    if (mapa[noweY, noweX] == SKALA)
+                    {
+                        mapa[noweY, noweX] = LAKA; // Zmiana pola
+                        tablicaTerenu[noweY, noweX].Source = obrazyTerenu[LAKA]; // Zmiana obrazu w siatce
+                        IloscKamienia++; // Gracz zdobywa kamień
+                        EtykietaKamienia.Content = "Kamień: " + IloscKamienia;
+                        break; // Tylko pierwsze napotkane pole z kamieniem zmieniamy na LAKA
+                    }
+                }
+            }
+        }
+        private void OnWykop(object sender, RoutedEventArgs e)
+        {
+            WykopSkale();
         }
 
         // Obsługa naciśnięć klawiszy – ruch gracza oraz wycinanie lasu
@@ -232,13 +264,23 @@ namespace Gra2D
                     EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
                 }
             }
+            if (iloscDrewna > 4) 
+                
+            {
+                wyswietl.Content = "Odblokowano Kilof!!!";
+                if (e.Key == Key.R) 
+                {
+                    WykopSkale();
+                }
+            }
+
             bool reset = true;
 
             for (int i = 0; i < mapa.GetLength(0); i++) 
             {
                 for (int j = 0; j < mapa.GetLength(1); j++) 
                 {
-                    if (mapa[i, j] != SKALA && mapa[i, j] != LAKA) 
+                    if (mapa[i, j] != LAKA) 
                     {
                         reset = false;
                         break;
@@ -274,7 +316,7 @@ namespace Gra2D
                         wyswietl.Content = "Poruszaj Się Strzałkami";
                         break;
                     case "Akcja":
-                        wyswietl.Content = "TRALALALA";
+                        wyswietl.Content = "Zbieranie Drewna: C, Reset: D";
                         break;
                          
                 }
@@ -301,8 +343,10 @@ namespace Gra2D
             GenerujMape(7, 7);
             WczytajMape("mapa.txt");
         }
+        
     }
-
+    
+    
    
 }
 

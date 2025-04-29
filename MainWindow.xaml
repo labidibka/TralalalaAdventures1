@@ -28,6 +28,7 @@
         </Menu>
         <Label x:Name="wyswietl" Width="203" HorizontalAlignment="Left" Margin="597,0,0,10"/>
         <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="0,-2,0,22" HorizontalAlignment="Left"/>
+        <Label Name="EtykietaKamienia" Content="Kamień: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,20,0,0"/>
         <!-- <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
