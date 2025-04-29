@@ -23,7 +23,7 @@ namespace Gra2D
         // Dwuwymiarowa tablica kontrolek Image reprezentujących segmenty mapy
         private Image[,] tablicaTerenu;
         // Rozmiar jednego segmentu mapy w pikselach
-        private const int RozmiarSegmentuW = 96;
+        private const int RozmiarSegmentuW = 64;
         private const int RozmiarSegmentuH = 64;
 
         // Tablica obrazków terenu – indeks odpowiada rodzajowi terenu
@@ -82,6 +82,29 @@ namespace Gra2D
                     obrazGracza.Source = nowyGracz;
                 }
             }
+        }
+
+        private void GenerujMape(int ileSegmentowX, int ileSegmentowY) 
+        {
+            Random rnd = new Random();
+            using (StreamWriter writer = new StreamWriter("mapa.txt"))
+            {
+                for (int i = 0; i < ileSegmentowX; i++)
+                {
+                    for (int j = 0; j < ileSegmentowY; j++)
+                    {
+                        int losowanie = rnd.Next(100);
+                        if (losowanie < 40)
+                            writer.Write("1 ");
+                        else if (losowanie <= 80)
+                            writer.Write("2 ");
+                        else
+                            writer.Write("3 ");
+                    }
+                    writer.WriteLine();
+                }
+            }
+
         }
         private void WczytajObrazyTerenu()
         {
@@ -249,16 +272,20 @@ namespace Gra2D
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            string sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\mapa.txt";
+            GenerujMape(5, 5);
+            WczytajMape("mapa.txt");
+        }
 
-            if (File.Exists(sciezka))
-            {
-                WczytajMape(sciezka);
-            }
-            else
-            {
-                MessageBox.Show("Plik nie istnieje: " + sciezka);
-            }
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            GenerujMape(6, 6);
+            WczytajMape("mapa.txt");
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            GenerujMape(7, 7);
+            WczytajMape("mapa.txt");
         }
     }
 

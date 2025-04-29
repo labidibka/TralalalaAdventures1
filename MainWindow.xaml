@@ -12,8 +12,8 @@
         <Menu VerticalAlignment="Top" HorizontalAlignment="Center">
             <MenuItem Header="Wybierz Mapę" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold">
                 <MenuItem Header="5x5" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_2"></MenuItem>
-                <MenuItem Header="6x6" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
-                <MenuItem Header="7x7" Height="29" Width="120" HorizontalContentAlignment="Center"></MenuItem>
+                <MenuItem Header="6x6" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_3"></MenuItem>
+                <MenuItem Header="7x7" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_4"></MenuItem>
             </MenuItem>
             <MenuItem Header="Wybierz Postać" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click_1">
                 <MenuItem x:Name="Tung" Header="Tung" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click_1"></MenuItem>
@@ -36,7 +36,8 @@
 
 
         <!-- Kontener wyświetlający mapę -->
-        <Grid Name="SiatkaMapy" Background="LightBlue" Margin="0,35,0,0" Grid.Row="1"/>
+        <Grid Name="SiatkaMapy" Margin="0,35,0,0" Grid.Row="1" Background="Gray">
+        </Grid>
     </Grid>
 </Window>
 
