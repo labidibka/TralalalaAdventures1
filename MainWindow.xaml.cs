@@ -234,18 +234,7 @@ namespace Gra2D
             }
         }
 
-        // Obsługa przycisku "Wczytaj mapę"
-        private void WczytajMape_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog oknoDialogowe = new OpenFileDialog();
-            oknoDialogowe.Filter = "Plik mapy (*.txt)|*.txt";
-            oknoDialogowe.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory; // Ustawienie katalogu początkowego
-            bool? czyOtwartoMape = oknoDialogowe.ShowDialog();
-            if (czyOtwartoMape == true)
-            {
-                WczytajMape(oknoDialogowe.FileName);
-            }
-        }
+     
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
