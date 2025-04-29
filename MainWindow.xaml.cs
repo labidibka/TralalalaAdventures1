@@ -232,6 +232,30 @@ namespace Gra2D
                     EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
                 }
             }
+            bool reset = true;
+
+            for (int i = 0; i < mapa.GetLength(0); i++) 
+            {
+                for (int j = 0; j < mapa.GetLength(1); j++) 
+                {
+                    if (mapa[i, j] != SKALA && mapa[i, j] != LAKA) 
+                    {
+                        reset = false;
+                        break;
+                    }
+                }
+            }
+            if (reset == true) 
+            {
+                GenerujMape(wysokoscMapy, szerokoscMapy);
+                WczytajMape("mapa.txt");
+            }
+
+            if (e.Key == Key.D) 
+            {
+                GenerujMape(wysokoscMapy, szerokoscMapy);
+                WczytajMape("mapa.txt");
+            } 
         }
 
      
@@ -261,6 +285,7 @@ namespace Gra2D
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
+            
             GenerujMape(5, 5);
             WczytajMape("mapa.txt");
         }
