@@ -14,8 +14,8 @@ namespace Gra2D
         public const int LAS = 1;
         public const int LAKA = 2;
         public const int SKALA = 3;
-        public const int ZELAZO = 4;
-        public const int ILE_TERENOW = 4;
+        public const int Zelazo = 4;
+        public const int ILE_TERENOW = 5;
 
         private int[,] mapa;
         private int szerokoscMapy;
@@ -24,7 +24,7 @@ namespace Gra2D
         private const int RozmiarSegmentuW = 64;
         private const int RozmiarSegmentuH = 64;
 
-        private BitmapImage[] obrazyTerenu = new BitmapImage[ILE_TERENOW + 1];
+        private BitmapImage[] obrazyTerenu = new BitmapImage[ILE_TERENOW];
 
         private int pozycjaGraczaX = 0;
         private int pozycjaGraczaY = 0;
@@ -32,6 +32,7 @@ namespace Gra2D
         private int iloscDrewna = 0;
         private int IloscKamienia = 0;
         private int IleZelaza = 0;
+       
 
         public MainWindow()
         {
@@ -69,6 +70,8 @@ namespace Gra2D
 
         private void GenerujMape(int ileSegmentowX, int ileSegmentowY, int Tryb)
         {
+
+
             Random rnd = new Random();
             using (StreamWriter writer = new StreamWriter("mapa.txt"))
             {
@@ -83,15 +86,28 @@ namespace Gra2D
                             else if (losowanie <= 80) writer.Write("2 ");
                             else writer.Write("3 ");
                         }
-                        else if (Tryb == 2)
+                        else if (Tryb == 2) 
                         {
-                            if (losowanie < 50) writer.Write("3 ");
-                            else writer.Write("4 ");
+                            if (losowanie < 60)
+                            {
+                                writer.Write("1 ");
+                            }
+                            else 
+                            {
+                                writer.Write("4 ");
+                            }
                         }
+                        
+                          
+                        
+                        
                     }
                     writer.WriteLine();
                 }
+
             }
+            
+           
         }
 
         private void WczytajObrazyTerenu()
@@ -99,7 +115,8 @@ namespace Gra2D
             obrazyTerenu[LAS] = new BitmapImage(new Uri("las.png", UriKind.Relative));
             obrazyTerenu[LAKA] = new BitmapImage(new Uri("laka.png", UriKind.Relative));
             obrazyTerenu[SKALA] = new BitmapImage(new Uri("skala.png", UriKind.Relative));
-            obrazyTerenu[ZELAZO] = new BitmapImage(new Uri("las.png", UriKind.Relative));
+            obrazyTerenu[Zelazo] = new BitmapImage(new Uri("zelazo.png", UriKind.Relative));
+
         }
 
         private void WczytajMape(string sciezkaPliku)
@@ -229,6 +246,12 @@ namespace Gra2D
                     EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
                 }
             }
+            
+
+
+
+
+
 
             if (iloscDrewna > 4)
             {
@@ -238,6 +261,11 @@ namespace Gra2D
                     WykopSkale();
                 }
             }
+
+            
+            
+            
+            
            
 
             bool reset = true;
@@ -256,6 +284,7 @@ namespace Gra2D
             {
                 GenerujMape(wysokoscMapy, szerokoscMapy, 2);
                 WczytajMape("mapa.txt");
+                
             }
 
             if (e.Key == Key.D)
