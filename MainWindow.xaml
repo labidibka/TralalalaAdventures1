@@ -1,9 +1,11 @@
 ﻿<Window x:Class="Gra2D.MainWindow"
+        WindowState="Maximized" 
+        WindowStyle="None"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Gra WPF" Height="600" Width="800"
         KeyDown="OknoGlowne_KeyDown">
-    <Grid>
+    <Grid Background="Gray">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -23,22 +25,22 @@
             <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click">
                 <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="MenuItem_Click"></MenuItem>
                 <MenuItem  x:Name="Akcja"  Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
+                <MenuItem  x:Name="Exit"  Header="Exit" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
             </MenuItem>
 
         </Menu>
-        <Label x:Name="wyswietl" Width="203" HorizontalAlignment="Left" Margin="597,0,0,10"/>
+        <Label x:Name="wyswietl" Width="300" Margin="642,0,-142,10" FontSize="20" FontWeight="Bold"/>
         <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="0,-2,0,22" HorizontalAlignment="Left"/>
         <Label Name="EtykietaKamienia" Content="Kamień: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,20,0,0"/>
+        <Label Name="EtykietaZelaza" Content="Żelazo: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="3,44,0,-24"/>
         <!-- <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
         </StackPanel> -->
-        <Image x:Name="MainImage" Width="189" Height="167" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="597,49,0,0" Panel.ZIndex="1" Grid.Row="1"/>
 
 
         <!-- Kontener wyświetlający mapę -->
-        <Grid Name="SiatkaMapy" Margin="0,35,0,0" Grid.Row="1" Background="Gray">
-        </Grid>
+        <Grid Name="SiatkaMapy" Margin="0,35,0,0" Grid.Row="1" Background="Gray" HorizontalAlignment="Center" VerticalAlignment="Top"/>
     </Grid>
 </Window>
 
