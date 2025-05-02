@@ -48,7 +48,7 @@ namespace Gra2D
             obrazGracza.Source = bmpGracza;
             try
             {
-                BitmapImage testImg = new BitmapImage(new Uri("Żelazo.png", UriKind.Relative));
+                BitmapImage testImg = new BitmapImage(new Uri("Zelazo.png", UriKind.Relative));
                 testImage.Source = testImg;
             }
             catch (Exception ex)
