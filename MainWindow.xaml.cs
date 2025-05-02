@@ -46,15 +46,7 @@ namespace Gra2D
             };
             BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
             obrazGracza.Source = bmpGracza;
-            try
-            {
-                BitmapImage testImg = new BitmapImage(new Uri("Zelazo.png", UriKind.Relative));
-                testImage.Source = testImg;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Nie udało się załadować obrazu: " + ex.Message);
-            }
+           
 
         }
 
@@ -100,9 +92,13 @@ namespace Gra2D
                         else if (Tryb == 2)
                         {
 
-                            if (losowanie < 60)
+                            if (losowanie < 60 )
                             {
                                 writer.Write("1 ");
+                            }
+                            else if (losowanie <= 80) 
+                            {
+                                writer.Write("3 ");
                             }
                             else
                             {
@@ -127,7 +123,7 @@ namespace Gra2D
             obrazyTerenu[LAS] = new BitmapImage(new Uri("las.png", UriKind.Relative));
             obrazyTerenu[LAKA] = new BitmapImage(new Uri("laka.png", UriKind.Relative));
             obrazyTerenu[SKALA] = new BitmapImage(new Uri("skala.png", UriKind.Relative));
-            obrazyTerenu[Zelazo] = new BitmapImage(new Uri("Zelazo.png", UriKind.Relative));
+            obrazyTerenu[Zelazo] = new BitmapImage(new Uri("Żelazo.png", UriKind.Relative));
 
         }
 
