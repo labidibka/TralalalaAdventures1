@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿
+using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Reflection;
@@ -21,8 +22,8 @@ namespace Gra2D
         private int szerokoscMapy;
         private int wysokoscMapy;
         private Image[,] tablicaTerenu;
-        private const int RozmiarSegmentuW = 64;
-        private const int RozmiarSegmentuH = 64;
+        private const int RozmiarSegmentuW = 100;
+        private const int RozmiarSegmentuH = 100;
 
         private BitmapImage[] obrazyTerenu = new BitmapImage[ILE_TERENOW];
 
@@ -38,10 +39,10 @@ namespace Gra2D
         {
             InitializeComponent();
             WczytajObrazyTerenu();
-            obrazGracza = new Image 
-            { 
-                Width = RozmiarSegmentuW, 
-                Height = RozmiarSegmentuH 
+            obrazGracza = new Image
+            {
+                Width = RozmiarSegmentuW,
+                Height = RozmiarSegmentuH
             };
             BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
             obrazGracza.Source = bmpGracza;
@@ -86,29 +87,29 @@ namespace Gra2D
                             else if (losowanie <= 80) writer.Write("2 ");
                             else writer.Write("3 ");
                         }
-                        else if (Tryb == 2) 
+                        else if (Tryb == 2)
                         {
-                           
+
                             if (losowanie < 60)
                             {
                                 writer.Write("1 ");
                             }
-                            else 
+                            else
                             {
                                 writer.Write("4 ");
                             }
                         }
-                        
-                          
-                        
-                        
+
+
+
+
                     }
                     writer.WriteLine();
                 }
 
             }
-            
-           
+
+
         }
 
         private void WczytajObrazyTerenu()
@@ -116,7 +117,7 @@ namespace Gra2D
             obrazyTerenu[LAS] = new BitmapImage(new Uri("las.png", UriKind.Relative));
             obrazyTerenu[LAKA] = new BitmapImage(new Uri("laka.png", UriKind.Relative));
             obrazyTerenu[SKALA] = new BitmapImage(new Uri("skala.png", UriKind.Relative));
-            obrazyTerenu[Zelazo] = new BitmapImage(new Uri("zelazo.png", UriKind.Relative));
+            obrazyTerenu[Zelazo] = new BitmapImage(new Uri("Zelazo.png", UriKind.Relative));
 
         }
 
@@ -172,7 +173,7 @@ namespace Gra2D
                 pozycjaGraczaY = 0;
                 AktualizujPozycjeGracza();
 
-                
+
             }
             catch (Exception ex)
             {
@@ -239,7 +240,7 @@ namespace Gra2D
 
         private void OknoGlowne_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             int nowyX = pozycjaGraczaX;
             int nowyY = pozycjaGraczaY;
 
@@ -250,7 +251,7 @@ namespace Gra2D
 
             if (nowyX >= 0 && nowyX < szerokoscMapy && nowyY >= 0 && nowyY < wysokoscMapy)
             {
-                if (mapa[nowyY, nowyX] != SKALA)
+                if (mapa[nowyY, nowyX] != SKALA && mapa[nowyY, nowyX] != Zelazo)
                 {
                     pozycjaGraczaX = nowyX;
                     pozycjaGraczaY = nowyY;
@@ -269,7 +270,7 @@ namespace Gra2D
                     EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
                 }
             }
-             if (iloscDrewna > 4)
+            if (iloscDrewna > 4)
             {
                 wyswietl.Content = "Odblokowano Drewniany Kilof!!! Kliknij: R";
                 if (e.Key == Key.R)
@@ -277,12 +278,13 @@ namespace Gra2D
                     WykopSkale();
                 }
             }
-            if (IloscKamienia > 2) 
+            if (IloscKamienia > 2)
             {
                 wyswietl.Content = "Odblokowano Kamienny Kilof!!! Kliknij: Q";
-                 if (e.Key == Key.Q) 
+                if (e.Key == Key.Q)
                 {
-
+                    WykopZelazo();
+                    WykopSkale();
                 }
             }
 
@@ -305,7 +307,7 @@ namespace Gra2D
                 if (licznikResetow >= 2)
                 {
                     wyswietl.Content = "Koniec gry!";
-                    this.KeyDown -= OknoGlowne_KeyDown; // wyłączenie sterowania
+                    
                     return;
                 }
                 else
@@ -314,12 +316,16 @@ namespace Gra2D
                     WczytajMape("mapa.txt");
                 }
             }
+            if (e.Key == Key.J) 
+            {
+                licznikResetow = 0;
+            }
 
             if (e.Key == Key.D)
             {
                 GenerujMape(wysokoscMapy, szerokoscMapy, 1);
                 WczytajMape("mapa.txt");
-                
+
             }
         }
 
