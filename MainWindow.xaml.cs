@@ -35,7 +35,10 @@ namespace Gra2D
         private int iloscDrewna = 0;
         private int IloscKamienia = 0;
         private int IleZelaza = 0;
+        private int IleZlota = 0;
+        private int IleDiament = 0;
         private int licznikResetow = 0;
+        private int TrybyCount = 1;
 
         public MainWindow()
         {
@@ -94,11 +97,11 @@ namespace Gra2D
                         else if (Tryb == 2)
                         {
 
-                            if (losowanie < 60 )
+                            if (losowanie < 30 && losowanie > 0)
                             {
                                 writer.Write("1 ");
                             }
-                            else if (losowanie <= 80) 
+                            else if (losowanie < 50 && losowanie >= 30) 
                             {
                                 writer.Write("3 ");
                             }
@@ -106,6 +109,32 @@ namespace Gra2D
                             {
                                 writer.Write("4 ");
                             }
+                        }
+                        else if (Tryb == 3)
+                        {
+
+                            if (losowanie < 60 && losowanie > 0)
+                            {
+                                writer.Write("4 ");
+                            }
+                            else if (losowanie >= 60 && losowanie < 90)
+                            {
+                                writer.Write("5 ");
+                            }
+                            else
+                            {
+                                writer.Write("6 ");
+                            }
+                        }
+                        else if (Tryb == 4)
+                        {
+
+                            if (losowanie >= 50)
+                            {
+                                writer.Write("5 ");
+                            }
+                            else
+                                writer.Write("6 ");
                         }
 
 
@@ -126,6 +155,8 @@ namespace Gra2D
             obrazyTerenu[LAKA] = new BitmapImage(new Uri("laka.png", UriKind.Relative));
             obrazyTerenu[SKALA] = new BitmapImage(new Uri("skala.png", UriKind.Relative));
             obrazyTerenu[Zelazo] = new BitmapImage(new Uri("Żelazo.png", UriKind.Relative));
+            obrazyTerenu[Zloto] = new BitmapImage(new Uri("Zloto.jpg", UriKind.Relative));
+            obrazyTerenu[Diament] = new BitmapImage(new Uri("Diament.jpg", UriKind.Relative));
 
         }
 
@@ -240,11 +271,54 @@ namespace Gra2D
                 }
             }
         }
-
-        private void OnWykop(object sender, RoutedEventArgs e)
+        private void WykopZloto()
         {
-            WykopSkale();
+            int[] dx = { -1, 1, 0, 0 };
+            int[] dy = { 0, 0, -1, 1 };
+
+            for (int i = 0; i < 4; i++)
+            {
+                int nx = pozycjaGraczaX + dx[i];
+                int ny = pozycjaGraczaY + dy[i];
+
+                if (nx >= 0 && nx < szerokoscMapy && ny >= 0 && ny < wysokoscMapy)
+                {
+                    if (mapa[ny, nx] == Zloto)
+                    {
+                        mapa[ny, nx] = SKALA;
+                        tablicaTerenu[ny, nx].Source = obrazyTerenu[SKALA];
+                        IleZlota++;
+                        EtykietaZlota.Content = "Zloto: " + IleZlota;
+                        break;
+                    }
+                }
+            }
         }
+        private void WykopDiament()
+        {
+            int[] dx = { -1, 1, 0, 0 };
+            int[] dy = { 0, 0, -1, 1 };
+
+            for (int i = 0; i < 4; i++)
+            {
+                int nx = pozycjaGraczaX + dx[i];
+                int ny = pozycjaGraczaY + dy[i];
+
+                if (nx >= 0 && nx < szerokoscMapy && ny >= 0 && ny < wysokoscMapy)
+                {
+                    if (mapa[ny, nx] == Diament)
+                    {
+                        mapa[ny, nx] = SKALA;
+                        tablicaTerenu[ny, nx].Source = obrazyTerenu[SKALA];
+                        IleDiament++;
+                        EtykietaDiamentu.Content = "Diament: " + IleDiament;
+                        break;
+                    }
+                }
+            }
+        }
+
+
 
         private void OknoGlowne_KeyDown(object sender, KeyEventArgs e)
         {
@@ -259,7 +333,7 @@ namespace Gra2D
 
             if (nowyX >= 0 && nowyX < szerokoscMapy && nowyY >= 0 && nowyY < wysokoscMapy)
             {
-                if (mapa[nowyY, nowyX] != SKALA && mapa[nowyY, nowyX] != Zelazo)
+                if (mapa[nowyY, nowyX] != SKALA && mapa[nowyY, nowyX] != Zelazo && mapa[nowyY, nowyX] != Zloto )
                 {
                     pozycjaGraczaX = nowyX;
                     pozycjaGraczaY = nowyY;
@@ -280,19 +354,35 @@ namespace Gra2D
             }
             if (iloscDrewna > 4)
             {
-                wyswietl.Content = "Odblokowano Drewniany Kilof!!! Kliknij: R";
-                if (e.Key == Key.R)
+                wyswietl.Content = "Odblokowano Drewniany Kilof!!! Kliknij: Spacje";
+                if (e.Key == Key.Space)
                 {
                     WykopSkale();
                 }
             }
             if (IloscKamienia > 2)
             {
-                wyswietl.Content = "Odblokowano Kamienny Kilof!!! Kliknij: Q";
-                if (e.Key == Key.Q)
+                wyswietl.Content = "Odblokowano Kamienny Kilof!!! Kliknij: Spacje";
+                if (e.Key == Key.Space)
                 {
                     WykopZelazo();
                     
+                }
+            }
+            if (IleZelaza > 2) 
+            {
+                wyswietl.Content = "Odblokowano Zelazny Kilof!!! Kliknij: Spacje";
+                if (e.Key == Key.Space) 
+                {
+                    WykopZloto();
+                }
+            }
+            if (IleZlota > 2) 
+            {
+                wyswietl.Content = "Odblokowano Złoty Kilof!!! Kliknij: Spacje";
+                if (e.Key == Key.Space)
+                {
+                    WykopDiament();
                 }
             }
 
@@ -312,7 +402,7 @@ namespace Gra2D
             {
                 licznikResetow++;
 
-                if (licznikResetow >= 2)
+                if (licznikResetow >= 4)
                 {
                     wyswietl.Content = "Koniec gry!";
 
@@ -336,7 +426,8 @@ namespace Gra2D
                 }
                 else
                 {
-                    GenerujMape(wysokoscMapy, szerokoscMapy, 2);
+                    TrybyCount++;
+                    GenerujMape(wysokoscMapy, szerokoscMapy, TrybyCount);
                     WczytajMape("mapa.txt");
                 }
             }
