@@ -59,9 +59,9 @@ namespace Gra2D
                 string sciezka = "";
                 switch (naglowek)
                 {
-                    case "Tung": sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Tung.jpg"; break;
-                    case "tralalelo": sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Trala.jpg"; break;
-                    case "Battler": sciezka = "C:\\Users\\jakub\\source\\repos\\tralalalalalal\\Battler.jpg"; break;
+                    case "Tung": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Tung.jpg"; break;
+                    case "tralalelo": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Trala.jpg"; break;
+                    case "Battler": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Battler.jpg"; break;
                 }
                 if (!string.IsNullOrEmpty(sciezka))
                 {
@@ -229,8 +229,8 @@ namespace Gra2D
                 {
                     if (mapa[ny, nx] == Zelazo)
                     {
-                        mapa[ny, nx] = LAKA;
-                        tablicaTerenu[ny, nx].Source = obrazyTerenu[LAKA];
+                        mapa[ny, nx] = SKALA;
+                        tablicaTerenu[ny, nx].Source = obrazyTerenu[SKALA];
                         IleZelaza++;
                         EtykietaZelaza.Content = "Żelazo: " + IleZelaza;
                         break;
@@ -290,7 +290,7 @@ namespace Gra2D
                 if (e.Key == Key.Q)
                 {
                     WykopZelazo();
-                    WykopSkale();
+                    
                 }
             }
 
@@ -313,8 +313,24 @@ namespace Gra2D
                 if (licznikResetow >= 2)
                 {
                     wyswietl.Content = "Koniec gry!";
+
+                    string wiadomosc = "Gratulacje!\n";
+                    if (iloscDrewna > 10)
+                    {
+                        wiadomosc += "Niezłe zbieranie drewna! Masz aż " + iloscDrewna + " sztuk.\n";
+                    }
+                    else if (iloscDrewna > 0)
+                    {
+                        wiadomosc += "Trochę drewna zebrałeś – " + iloscDrewna + ". Niezłe, ale mogło być lepiej!\n";
+                    }
                     
-                    return;
+
+                    wiadomosc += "Kamień: " + IloscKamienia + "\n";
+                    wiadomosc += "Żelazo: " + IleZelaza + "\n";
+                    wiadomosc += "Od Poczatku z wynikiem: D, Bez Wyniku: J";
+                    MessageBox.Show(wiadomosc, "Podsumowanie Gry: ");
+
+                    
                 }
                 else
                 {
@@ -325,10 +341,23 @@ namespace Gra2D
             if (e.Key == Key.J) 
             {
                 licznikResetow = 0;
+                iloscDrewna = 0;
+                IloscKamienia = 0;
+                IleZelaza = 0;
+
+                EtykietaDrewna.Content = "Drewno: 0";
+                EtykietaKamienia.Content = "Kamień: 0";
+                EtykietaZelaza.Content = "Żelazo: 0";
+                wyswietl.Content = "";
+
+                GenerujMape(wysokoscMapy, szerokoscMapy, 1);
+                WczytajMape("mapa.txt");
+                return;
             }
 
             if (e.Key == Key.D)
             {
+                licznikResetow = 0;
                 GenerujMape(wysokoscMapy, szerokoscMapy, 1);
                 WczytajMape("mapa.txt");
 
@@ -347,10 +376,13 @@ namespace Gra2D
                         wyswietl.Content = "Poruszaj Się Strzałkami";
                         break;
                     case "Akcja":
-                        wyswietl.Content = "Zbieranie Drewna: C, Reset: D";
+                        wyswietl.Content = "Zbieranie Drewna: C, Reset: D, Calkowity Reset: J ";
                         break;
                     case "Exit":
                         Application.Current.Shutdown();
+                        break;
+                    case "Kilofy":
+                        MessageBox.Show("Drewniany Kilof Może kopać Tylko Skałe, a Kamienny Tylko żelazo","Informacje: Kilofy");
                         break;
                 }
             }
