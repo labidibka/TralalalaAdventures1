@@ -95,7 +95,7 @@ namespace Gra2D
                             }
                             else 
                             {
-                                writer.Write("3 ");
+                                writer.Write("4 ");
                             }
                         }
                         
@@ -208,6 +208,29 @@ namespace Gra2D
                 }
             }
         }
+        private void WykopZelazo()
+        {
+            int[] dx = { -1, 1, 0, 0 };
+            int[] dy = { 0, 0, -1, 1 };
+
+            for (int i = 0; i < 4; i++)
+            {
+                int nx = pozycjaGraczaX + dx[i];
+                int ny = pozycjaGraczaY + dy[i];
+
+                if (nx >= 0 && nx < szerokoscMapy && ny >= 0 && ny < wysokoscMapy)
+                {
+                    if (mapa[ny, nx] == Zelazo)
+                    {
+                        mapa[ny, nx] = LAKA;
+                        tablicaTerenu[ny, nx].Source = obrazyTerenu[LAKA];
+                        IleZelaza++;
+                        EtykietaZelaza.Content = "Żelazo: " + IleZelaza;
+                        break;
+                    }
+                }
+            }
+        }
 
         private void OnWykop(object sender, RoutedEventArgs e)
         {
@@ -235,6 +258,7 @@ namespace Gra2D
                 }
             }
 
+
             if (e.Key == Key.C)
             {
                 if (mapa[pozycjaGraczaY, pozycjaGraczaX] == LAS)
@@ -247,10 +271,18 @@ namespace Gra2D
             }
              if (iloscDrewna > 4)
             {
-                wyswietl.Content = "Odblokowano Kilof!!! Kliknij: R";
+                wyswietl.Content = "Odblokowano Drewniany Kilof!!! Kliknij: R";
                 if (e.Key == Key.R)
                 {
                     WykopSkale();
+                }
+            }
+            if (IloscKamienia > 2) 
+            {
+                wyswietl.Content = "Odblokowano Kamienny Kilof!!! Kliknij: Q";
+                 if (e.Key == Key.Q) 
+                {
+
                 }
             }
 
@@ -287,6 +319,7 @@ namespace Gra2D
             {
                 GenerujMape(wysokoscMapy, szerokoscMapy, 1);
                 WczytajMape("mapa.txt");
+                
             }
         }
 

@@ -29,10 +29,10 @@
             </MenuItem>
 
         </Menu>
-        <Label x:Name="wyswietl" Width="300" Margin="642,0,-142,10" FontSize="20" FontWeight="Bold"/>
-        <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="0,-2,0,22" HorizontalAlignment="Left"/>
-        <Label Name="EtykietaKamienia" Content="Kamień: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,20,0,0"/>
-        <Label Name="EtykietaZelaza" Content="Żelazo: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="3,44,0,-24"/>
+        <Label x:Name="wyswietl" Margin="642,0,10,10" FontSize="16" FontWeight="Bold"/>
+        <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="22" Margin="0,-2,0,22" HorizontalAlignment="Left" FontWeight="Bold"/>
+        <Label Name="EtykietaKamienia" Content="Kamień: 0" FontSize="22" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,27,0,-7" FontWeight="Bold"/>
+        <Label Name="EtykietaZelaza" Content="Żelazo: 0" FontSize="24" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="3,59,0,-39" FontWeight="Bold"/>
         <!-- <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Left">
             <Button Content="Wczytaj mapę" Click="WczytajMape_Click" Margin="0,0,10,0" Width="150" Height="40" BorderBrush="White" Background="#FFD6C9C9" Foreground="Black"/>
             
