@@ -29,6 +29,7 @@
             </MenuItem>
 
         </Menu>
+        <Image Name="testImage" Width="100" Height="100" />
         <Label x:Name="wyswietl" Width="300" Margin="642,0,-142,514" FontSize="11" FontWeight="Bold" Grid.RowSpan="2"/>
         <Label Name="EtykietaDrewna" Content="Drewno: 0" FontSize="16" Margin="0,-2,0,22" HorizontalAlignment="Left"/>
         <Label Name="EtykietaKamienia" Content="Kamień: 0" FontSize="16" HorizontalAlignment="Left" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,20,0,0"/>

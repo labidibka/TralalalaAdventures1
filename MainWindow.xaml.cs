@@ -46,6 +46,7 @@ namespace Gra2D
             };
             BitmapImage bmpGracza = new BitmapImage(new Uri("gracz.png", UriKind.Relative));
             obrazGracza.Source = bmpGracza;
+
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
