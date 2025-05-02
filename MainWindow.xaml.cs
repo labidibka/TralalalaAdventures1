@@ -16,7 +16,9 @@ namespace Gra2D
         public const int LAKA = 2;
         public const int SKALA = 3;
         public const int Zelazo = 4;
-        public const int ILE_TERENOW = 5;
+        public const int Zloto = 5;
+        public const int Diament = 6;
+        public const int ILE_TERENOW = 7;
 
         private int[,] mapa;
         private int szerokoscMapy;

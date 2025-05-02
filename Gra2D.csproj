@@ -9,19 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Diament.jpg" />
     <None Remove="gracz.png" />
     <None Remove="laka.png" />
     <None Remove="las.png" />
     <None Remove="skala.png" />
     <None Remove="Zelazo.png" />
+    <None Remove="Zloto.jpg" />
     <None Remove="Żelazo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Diament.jpg" />
     <Resource Include="gracz.png" />
     <Resource Include="laka.png" />
     <Resource Include="las.png" />
     <Resource Include="skala.png" />
+    <Resource Include="Zloto.jpg" />
     <Resource Include="Żelazo.png" />
   </ItemGroup>
 
