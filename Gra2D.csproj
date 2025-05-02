@@ -14,6 +14,7 @@
     <None Remove="las.png" />
     <None Remove="skala.png" />
     <None Remove="Zelazo.png" />
+    <None Remove="Żelazo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,9 +22,7 @@
     <Resource Include="laka.png" />
     <Resource Include="las.png" />
     <Resource Include="skala.png" />
-    <Resource Include="Zelazo.png">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Żelazo.png" />
   </ItemGroup>
 
 </Project>
