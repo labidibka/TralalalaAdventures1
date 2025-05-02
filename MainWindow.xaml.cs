@@ -32,7 +32,7 @@ namespace Gra2D
         private int iloscDrewna = 0;
         private int IloscKamienia = 0;
         private int IleZelaza = 0;
-       
+        private int licznikResetow = 0;
 
         public MainWindow()
         {
@@ -88,13 +88,14 @@ namespace Gra2D
                         }
                         else if (Tryb == 2) 
                         {
+                           
                             if (losowanie < 60)
                             {
                                 writer.Write("1 ");
                             }
                             else 
                             {
-                                writer.Write("4 ");
+                                writer.Write("3 ");
                             }
                         }
                         
@@ -171,10 +172,7 @@ namespace Gra2D
                 pozycjaGraczaY = 0;
                 AktualizujPozycjeGracza();
 
-                iloscDrewna = 0;
-                EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
-                IloscKamienia = 0;
-                EtykietaKamienia.Content = "Kamień: " + IloscKamienia;
+                
             }
             catch (Exception ex)
             {
@@ -218,6 +216,7 @@ namespace Gra2D
 
         private void OknoGlowne_KeyDown(object sender, KeyEventArgs e)
         {
+            
             int nowyX = pozycjaGraczaX;
             int nowyY = pozycjaGraczaY;
 
@@ -246,14 +245,7 @@ namespace Gra2D
                     EtykietaDrewna.Content = "Drewno: " + iloscDrewna;
                 }
             }
-            
-
-
-
-
-
-
-            if (iloscDrewna > 4)
+             if (iloscDrewna > 4)
             {
                 wyswietl.Content = "Odblokowano Kilof!!! Kliknij: R";
                 if (e.Key == Key.R)
@@ -261,12 +253,6 @@ namespace Gra2D
                     WykopSkale();
                 }
             }
-
-            
-            
-            
-            
-           
 
             bool reset = true;
             for (int i = 0; i < mapa.GetLength(0); i++)
@@ -282,9 +268,19 @@ namespace Gra2D
             }
             if (reset == true)
             {
-                GenerujMape(wysokoscMapy, szerokoscMapy, 2);
-                WczytajMape("mapa.txt");
-                
+                licznikResetow++;
+
+                if (licznikResetow >= 2)
+                {
+                    wyswietl.Content = "Koniec gry!";
+                    this.KeyDown -= OknoGlowne_KeyDown; // wyłączenie sterowania
+                    return;
+                }
+                else
+                {
+                    GenerujMape(wysokoscMapy, szerokoscMapy, 2);
+                    WczytajMape("mapa.txt");
+                }
             }
 
             if (e.Key == Key.D)
