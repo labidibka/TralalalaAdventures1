@@ -25,7 +25,6 @@
             <MenuItem Header="Informacje" Height="29" Width="120" HorizontalContentAlignment="Center" FontWeight="Bold" Click="MenuItem_Click">
                 <MenuItem x:Name="Sterowanie" Header="Sterowanie" Height="29" Width="150" HorizontalContentAlignment="Left" Click="MenuItem_Click"></MenuItem>
                 <MenuItem  x:Name="Akcja"  Header="Akcja" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
-                <MenuItem  x:Name="Kilofy"  Header="Kilofy" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
                 <MenuItem  x:Name="Exit"  Header="Exit" Height="29" Width="120" HorizontalContentAlignment="Center" Click="MenuItem_Click"></MenuItem>
             </MenuItem>
 

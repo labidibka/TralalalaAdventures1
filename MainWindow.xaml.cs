@@ -479,9 +479,6 @@ namespace Gra2D
                     case "Exit":
                         Application.Current.Shutdown();
                         break;
-                    case "Kilofy":
-                        MessageBox.Show("Drewniany Kilof Może kopać Tylko Skałe, a Kamienny Tylko żelazo","Informacje: Kilofy");
-                        break;
                 }
             }
         }

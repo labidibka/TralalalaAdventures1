@@ -1,0 +1,14 @@
+Progress 
+- Zrobienie Menu dla gracza, Które pozwala na wybór informacji oraz postaci
+- Wybór mapy
+- losowe generowanie mapy
+- dodanie 3 nowych rud
+- wykopywanie skał, żelaza, złota i diamentów
+- przycisk wyjścia
+- wyświetlanie wyniku
+- ekran końcowy
+- automatyczne przechodzenie do następnych poziomów gry
+- wyczyszczenie wszystkich map spowoduje koniec gry
+- otrzymanie możliwości wykopania rud za pomocą uzbierania wystarczających surowcow
+- tworzenie pliku mapa.txt przez program
+- utworzenie funkcje operowane przez klawisze
