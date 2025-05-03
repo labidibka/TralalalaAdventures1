@@ -273,14 +273,18 @@ namespace Gra2D
         }
         private void WykopZloto()
         {
-            int[] dx = { -1, 1, 0, 0 };
-            int[] dy = { 0, 0, -1, 1 };
+            // Tablice określające kierunki ruchu: góra, dół, lewo, prawo
+            int[] dx = { -1, 1, 0, 0 }; // zmiana pozycji X
+            int[] dy = { 0, 0, -1, 1 }; // zmiana pozycji Y
 
+            // Pętla sprawdzająca cztery sąsiadujące pola wokół gracza
             for (int i = 0; i < 4; i++)
             {
+                // Wyliczenie współrzędnych sąsiedniego pola
                 int nx = pozycjaGraczaX + dx[i];
                 int ny = pozycjaGraczaY + dy[i];
 
+                // Sprawdzenie, czy sąsiednie pole mieści się w granicach mapy
                 if (nx >= 0 && nx < szerokoscMapy && ny >= 0 && ny < wysokoscMapy)
                 {
                     if (mapa[ny, nx] == Zloto)
@@ -296,14 +300,19 @@ namespace Gra2D
         }
         private void WykopDiament()
         {
-            int[] dx = { -1, 1, 0, 0 };
-            int[] dy = { 0, 0, -1, 1 };
+            // Tablice określające kierunki ruchu: góra, dół, lewo, prawo
 
+            int[] dx = { -1, 1, 0, 0 }; // zmiana pozycji X
+            int[] dy = { 0, 0, -1, 1 }; // zmiana pozycji Y
+
+            // Pętla sprawdzająca cztery sąsiadujące pola wokół gracza
             for (int i = 0; i < 4; i++)
             {
+                // Wyliczenie współrzędnych sąsiedniego pola
                 int nx = pozycjaGraczaX + dx[i];
                 int ny = pozycjaGraczaY + dy[i];
 
+                // Sprawdzenie, czy sąsiednie pole mieści się w granicach mapy
                 if (nx >= 0 && nx < szerokoscMapy && ny >= 0 && ny < wysokoscMapy)
                 {
                     if (mapa[ny, nx] == Diament)
