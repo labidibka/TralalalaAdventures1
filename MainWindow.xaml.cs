@@ -407,6 +407,7 @@ namespace Gra2D
                     wyswietl.Content = "Koniec gry!";
 
                     string wiadomosc = "Gratulacje!\n";
+
                     if (iloscDrewna > 10)
                     {
                         wiadomosc += "Niezłe zbieranie drewna! Masz aż " + iloscDrewna + " sztuk.\n";
@@ -415,15 +416,16 @@ namespace Gra2D
                     {
                         wiadomosc += "Trochę drewna zebrałeś – " + iloscDrewna + ". Niezłe, ale mogło być lepiej!\n";
                     }
-                    
 
                     wiadomosc += "Kamień: " + IloscKamienia + "\n";
                     wiadomosc += "Żelazo: " + IleZelaza + "\n";
+                    wiadomosc += "Złoto: " + IleZlota + "\n";
+                    wiadomosc += "Diamenty: " + IleDiament + "\n";
                     wiadomosc += "Od Poczatku z wynikiem: D, Bez Wyniku: J";
-                    MessageBox.Show(wiadomosc, "Podsumowanie Gry: ");
 
-                    
+                    MessageBox.Show(wiadomosc, "Podsumowanie Gry: ");
                 }
+
                 else
                 {
                     TrybyCount++;
@@ -441,6 +443,9 @@ namespace Gra2D
                 EtykietaDrewna.Content = "Drewno: 0";
                 EtykietaKamienia.Content = "Kamień: 0";
                 EtykietaZelaza.Content = "Żelazo: 0";
+                EtykietaZlota.Content = "Zlota: 0";
+                EtykietaDiamentu.Content = "Diament: 0";
+               
                 wyswietl.Content = "";
 
                 GenerujMape(wysokoscMapy, szerokoscMapy, 1);
