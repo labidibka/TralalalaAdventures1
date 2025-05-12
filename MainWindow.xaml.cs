@@ -58,19 +58,37 @@ namespace Gra2D
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             MenuItem klik = sender as MenuItem;
+
+            // Sprawdzenie, czy rzutowanie się powiodło (czyli czy faktycznie kliknięto MenuItem)
             if (klik != null)
             {
+                // Pobranie tekstu z nagłówka klikniętego elementu menu
                 string naglowek = klik.Header.ToString();
+
+                // Inicjalizacja pustej zmiennej na ścieżkę do obrazu
                 string sciezka = "";
+
+                // W zależności od wartości nagłówka przypisujemy odpowiednią ścieżkę do pliku graficznego
                 switch (naglowek)
                 {
-                    case "Tung": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Tung.jpg"; break;
-                    case "tralalelo": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Trala.jpg"; break;
-                    case "Battler": sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Battler.jpg"; break;
+                    case "Tung":
+                        sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Tung.jpg";
+                        break;
+                    case "tralalelo":
+                        sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Trala.jpg";
+                        break;
+                    case "Battler":
+                        sciezka = "C:\\Users\\jakub\\Source\\Repos\\TralalalaAdventures1\\Battler.jpg";
+                        break;
                 }
+
+                // Jeśli ścieżka nie jest pusta (czyli udało się dobrać odpowiedni obrazek)
                 if (!string.IsNullOrEmpty(sciezka))
                 {
+                    // Tworzenie nowego obiektu BitmapImage na podstawie ścieżki do pliku
                     BitmapImage nowyGracz = new BitmapImage(new Uri(sciezka, UriKind.Absolute));
+
+                    // Przypisanie obrazu do kontrolki obrazGracza (np. Image w XAML)
                     obrazGracza.Source = nowyGracz;
                 }
             }
