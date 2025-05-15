@@ -439,7 +439,7 @@ namespace Gra2D
                     {
                         wiadomosc += "Niezłe zbieranie drewna! Masz aż " + iloscDrewna + " sztuk.\n";
                     }
-                    else if (iloscDrewna > 0)
+                    else if (iloscDrewna < 7)
                     {
                         wiadomosc += "Trochę drewna zebrałeś – " + iloscDrewna + ". Niezłe, ale mogło być lepiej!\n";
                     }
